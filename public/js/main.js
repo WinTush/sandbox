@@ -62,7 +62,6 @@ async function viewReceipt(transactionId) {
                 <!-- Use the stable receipt number from the server -->
                 <p><strong>RECEIPT NUMBER:</strong> ${tx.receiptNumber}</p>
                 <p style="border-top: 1px dashed; padding-top: 10px;">THANK YOU</p>
-                <p style="font-weight: bold; color: red; margin-top: 20px;">Tulipe Ushuru Tujitegemee!</p>
             </div>
         `;
     receiptContainer.innerHTML = receiptHTML;
