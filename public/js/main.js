@@ -48,7 +48,7 @@ async function viewReceipt(transactionId) {
                  <table style="width: 100%; margin-top: 20px;">
                     <tr><td>SUB TOTAL</td><td style="text-align: right;">${tx.subTotal}</td></tr>
                     <tr><td style="font-weight: bold;">VAT</td><td style="text-align: right; font-weight: bold;">${tx.vat}</td></tr>
-                    <tr><td style="font-weight: bold; font-size: 1.1em;">TOTAL</td><td style="text-align: right; font-weight: bold; font-size: 1.1em;">${tx.totalPrice}</td></tr>
+                    <tr><td style="font-weight: bold; font-size: 0.9em;">TOTAL</td><td style="text-align: right; font-weight: bold; font-size: 0.9em;">${tx.totalPrice}</td></tr>
                 </table>
             </div>
             <div style="text-align: center; margin-top: 20px;">
@@ -78,7 +78,7 @@ function printReceipt() {
   const printWindow = window.open("", "", "height=800,width=500");
   printWindow.document.write("<html><head><title>Print Receipt</title>");
   printWindow.document.write(
-    '<style>body { font-family: "Courier New", monospace; font-size: 12px; } table { width: 100%; border-collapse: collapse; } th, td { padding: 2px; } </style>',
+    "<style>body { font-family: monospace; font-size: 11px; } table { width: 100%; border-collapse: collapse; } th, td { padding: 2px; } </style>",
   );
   printWindow.document.write("</head><body>");
   printWindow.document.write(receiptContent.innerHTML);
