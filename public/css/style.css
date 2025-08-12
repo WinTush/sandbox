@@ -1,0 +1,188 @@
+body {
+  font-family: monospace;
+  margin: 0;
+  padding: 20px;
+  background-color: #f4f7f9;
+  color: #333;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  min-height: 100vh;
+}
+.container {
+  width: 90%;
+  max-width: 1200px;
+  background-color: #fff;
+  padding: 40px;
+  border-radius: 12px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  animation: fadeIn 0.5s ease-in-out;
+}
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+h1,
+h2 {
+  color: #1a202c;
+  text-align: center;
+  margin-bottom: 30px;
+}
+.upload-section {
+  text-align: center;
+  margin-bottom: 40px;
+  border: 2px dashed #d1d8e0;
+  padding: 30px;
+  border-radius: 8px;
+  background-color: #f9fafb;
+  transition: background-color 0.3s;
+}
+.upload-section:hover {
+  background-color: #f1f5f8;
+}
+.upload-section label {
+  cursor: pointer;
+  color: #4a5568;
+  font-weight: 500;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+.upload-section input[type="file"] {
+  display: none;
+}
+#fileName {
+  margin-top: 15px;
+  font-style: italic;
+  color: #718096;
+}
+.transaction-list {
+  margin-top: 20px;
+  overflow-x: auto;
+}
+table {
+  width: 100%;
+  border-collapse: collapse;
+  animation: slideInUp 0.5s ease-in-out;
+}
+@keyframes slideInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+th,
+td {
+  padding: 15px;
+  text-align: left;
+  border-bottom: 1px solid #e2e8f0;
+  white-space: nowrap;
+}
+th {
+  background-color: #edf2f7;
+  font-weight: 600;
+  color: #4a5568;
+}
+.action-button {
+  background-color: #4299e1;
+  color: white;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+.action-button:hover {
+  background-color: #3182ce;
+}
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.6);
+  padding-top: 50px;
+}
+.modal-content {
+  background-color: #fefefe;
+  margin: 2% auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 90%;
+  max-width: 450px; /* Optimal width for a receipt */
+  border-radius: 8px;
+  position: relative;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  animation: slideDown 0.4s ease-out;
+}
+@keyframes slideDown {
+  from {
+    transform: translateY(-50px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+.close-button {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+  cursor: pointer;
+  line-height: 1;
+}
+.close-button:hover,
+.close-button:focus {
+  color: black;
+  text-decoration: none;
+}
+#receipt-container {
+  padding: 10px;
+  border: 1px solid #ddd;
+  background-color: #fff;
+  font-family: monospace;
+  font-size: 14px;
+}
+.receipt-actions {
+  text-align: right;
+  margin-top: 20px;
+}
+.receipt-actions button {
+  margin-left: 10px;
+  padding: 10px 20px;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+  font-weight: 500;
+}
+.print-button {
+  background-color: #68d391;
+  color: white;
+}
+.print-button:hover {
+  background-color: #48bb78;
+}
+.download-button {
+  background-color: #63b3ed;
+  color: white;
+}
+.download-button:hover {
+  background-color: #4299e1;
+}

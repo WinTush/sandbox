@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fiscal Transaction Processor</title>
+    <!-- Link to our CSS file in the public directory -->
+    <link rel="stylesheet" href="/css/style.css">
+    <!-- Include html2pdf.js for client-side PDF generation -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.2/html2pdf.bundle.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h1>Fiscal Transaction Processor</h1>
+        <div class="transaction-list">
+            <h2>Transactions</h2>
+            <table id="transactionTable">
+                <thead>
+                    <tr>
+                        <th>Transaction ID</th>
+                        <th>Date</th>
+                        <th>Product</th>
+                        <th>Total Price</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- EJS loops through the transactions passed from the server -->
+                    <% transactions.forEach(tx => { %>
+                        <tr>
+                            <td><%= tx.id %></td>
+                            <td><%= tx.date %></td>
+                            <td><%= tx.product %></td>
+                            <td><%= tx.totalPrice %></td>
+                            <!-- Note: We pass the unique transaction ID to the viewReceipt function -->
+                            <td><button class="action-button" onclick="viewReceipt('<%= tx.id %>')">View Receipt</button></td>
+                        </tr>
+                    <% }); %>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- The Modal for displaying the receipt -->
+    <div id="receiptModal" class="modal">
+        <div class="modal-content">
+            <span class="close-button">&times;</span>
+            <div id="receipt-container">
+                <!-- Receipt content will be dynamically inserted here by client-side JS -->
+            </div>
+            <div class="receipt-actions">
+                <button class="print-button" onclick="printReceipt()">Print</button>
+                <button class="download-button" onclick="downloadReceipt()">Download PDF</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Link to our client-side JavaScript -->
+    <script src="/js/main.js"></script>
+</body>
+</html>
