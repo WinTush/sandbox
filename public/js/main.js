@@ -1,6 +1,14 @@
 const traderName = "Vivo Energy";
 let currentTransaction = null; // To hold the data of the currently viewed receipt
 
+function formatWithHyphens(str) {
+  // Remove existing hyphens (if any) and split into chunks of 4
+  return str
+    .replace(/-/g, "")
+    .match(/.{1,4}/g)
+    .join("-");
+}
+
 async function viewReceipt(transactionId) {
   try {
     // Fetch the specific transaction details from our server's API
@@ -53,8 +61,10 @@ async function viewReceipt(transactionId) {
             </div>
             <div style="text-align: center; margin-top: 20px;">
                 <p style="border-top: 1px dashed; padding-top: 10px;">--- SCU INFORMATION ---</p>
-                <p><strong>Internal Data:</strong><br />DH73-NMPP-UOLW-IO4Q-VEFK-BU7W-BE</p>
-                <p><strong>Receipt Signature:</strong><br /> W6KS-CGFD-3NTF-2QAP</p>
+                <p><strong>Internal Data:</strong><br /> ${formatWithHyphens(tx.internalData)}</p>
+                <p><strong>Receipt Signature:</strong><br /> ${formatWithHyphens(tx.signature)}</p>
+                <p><strong>SCU ID:</strong> KRACU0300003629 </p>
+                <p><strong>CU INVOICE NO:</strong> KRACU0300003629/${tx.receiptNumber} </p>
                 <p><strong>Date:</strong> ${tx.date} <strong>Time:</strong> ${tx.time}</p>
                 <!-- Use the pre-generated QR code from the server -->
                 <img src="${tx.qrCode}" alt="QR Code" style="margin: 10px auto; display:block;">
